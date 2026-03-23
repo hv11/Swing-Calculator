@@ -1,11 +1,9 @@
 import javax.swing.*;
 import javax.swing.border.*;
-//import javax.swing.border.Border;
 import java.awt.*;
 
 public class Calculator
 {
-    //private CalculatorGraphics graphics;
     public static void main(String[] args)
     {
         javax.swing.SwingUtilities.invokeLater(new Runnable()
@@ -50,7 +48,7 @@ public class Calculator
         calculatePart.setBorder(BorderFactory.createLineBorder(Color.black,5));
         calculatorGraphics.getContentPane().add(calculatePart, BorderLayout.CENTER);
         
-        //pane
+        //Buttons pane
         JPanel pane = new JPanel(new GridLayout(5,4,5,5));
         pane.setPreferredSize(new Dimension(300,200));
         pane.setBackground(Color.black);

@@ -1,29 +1,39 @@
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Calculator
+public class Calculator implements ActionListener
 {
+    private String thus;
+    private JButton delete, allClear, percent, divide, seven, eight, 
+        nine, multiply, four, five, six, subtract, one, two, three, add, changeNumberSign, zero, decimal, equalSign;
+    
+    private CalculatorBackEnd calculatorBackEnd;
+        
     public static void main(String[] args)
     {
+        Calculator calculator = new Calculator();
         javax.swing.SwingUtilities.invokeLater(new Runnable()
         {
             public void run()
             {
-                createCalculator();
-                calculate();
+                calculator.createCalculator();
             }
         });
     }
     
-    public static void calculate()
+    public void actionPerformed(ActionEvent e)
     {
-        System.out.print(5);
+        if(e.getSource() == delete)
+        {
+            System.out.print("delete");
+        }
     }
     
-    public static void createCalculator()
+    public void createCalculator()
     {
-        
+        calculatorBackEnd = new CalculatorBackEnd();
         System.out.print("run");
         JFrame calculatorGraphics = new JFrame("Calculator");
         
@@ -48,7 +58,7 @@ public class Calculator
         calculatePart.setBorder(BorderFactory.createLineBorder(Color.black,5));
         calculatorGraphics.getContentPane().add(calculatePart, BorderLayout.CENTER);
         
-        //Buttons pane
+        //Buttons Pane
         JPanel pane = new JPanel(new GridLayout(5,4,5,5));
         pane.setPreferredSize(new Dimension(300,200));
         pane.setBackground(Color.black);
@@ -57,105 +67,124 @@ public class Calculator
         calculatorGraphics.getContentPane().add(pane, BorderLayout.PAGE_END);
         
         //Create buttons
-        JButton delete = new JButton("del");
+        delete = new JButton("del");
         delete.setBackground(Color.gray);
         delete.setFocusPainted(false); //gets rid of the text box that shows when selected
+        delete.addActionListener(this);
         pane.add(delete);
         
-        
-        JButton allClear = new JButton("AC");
+        allClear = new JButton("AC");
         allClear.setBackground(Color.gray);
         allClear.setFocusPainted(false);
+        allClear.addActionListener(this);
         pane.add(allClear);
         
-        JButton percent = new JButton("%");
+        percent = new JButton("%");
         percent.setBackground(Color.gray);
         percent.setFocusPainted(false);
+        percent.addActionListener(this);
         pane.add(percent);
         
-        JButton divide = new JButton("/");
+        divide = new JButton("/");
         divide.setBackground(Color.gray);
         divide.setFocusPainted(false);
+        divide.addActionListener(this);
         pane.add(divide);
         
-        JButton seven = new JButton("7");
+        seven = new JButton("7");
         seven.setBackground(Color.gray);
         seven.setFocusPainted(false);
+        seven.addActionListener(this);
         pane.add(seven);
         
-        JButton eight = new JButton("8");
+        eight = new JButton("8");
         eight.setBackground(Color.gray);
         eight.setFocusPainted(false);
+        eight.addActionListener(this);
         pane.add(eight);
         
-        JButton nine = new JButton("9");
+        nine = new JButton("9");
         nine.setBackground(Color.gray);
         nine.setFocusPainted(false);
+        nine.addActionListener(this);
         pane.add(nine);
         
-        JButton multiply = new JButton("X");
+        multiply = new JButton("X");
         multiply.setBackground(Color.gray);
         multiply.setFocusPainted(false);
+        multiply.addActionListener(this);
         pane.add(multiply);
         
-        JButton four = new JButton("4");
+        four = new JButton("4");
         four.setBackground(Color.gray);
         four.setFocusPainted(false);
+        four.addActionListener(this);
         pane.add(four);
         
-        JButton five = new JButton("5");
+        five = new JButton("5");
         five.setBackground(Color.gray);
         five.setFocusPainted(false);
+        five.addActionListener(this);
         pane.add(five);
         
-        JButton six = new JButton("6");
+        six = new JButton("6");
         six.setBackground(Color.gray);
         six.setFocusPainted(false);
+        six.addActionListener(this);
         pane.add(six);
         
-        JButton subtract = new JButton("-");
+        subtract = new JButton("-");
         subtract.setBackground(Color.gray);
-        pane.add(subtract);
         subtract.setFocusPainted(false);
+        subtract.addActionListener(this);
+        pane.add(subtract);
         
-        JButton one = new JButton("1");
+        one = new JButton("1");
         one.setBackground(Color.gray);
         one.setFocusPainted(false);
+        one.addActionListener(this);
         pane.add(one);
         
-        JButton two = new JButton("2");
+        two = new JButton("2");
         two.setBackground(Color.gray);
         two.setFocusPainted(false);
+        two.addActionListener(this);
         pane.add(two);
         
-        JButton three = new JButton("3");
+        three = new JButton("3");
         three.setBackground(Color.gray);
         three.setFocusPainted(false);
+        three.addActionListener(this);
         pane.add(three);
         
-        JButton add = new JButton("+");
+        add = new JButton("+");
         add.setBackground(Color.gray);
         add.setFocusPainted(false);
+        add.addActionListener(this);
         pane.add(add);
     
-        JButton changeNumberSign = new JButton("+/-");
+        changeNumberSign = new JButton("+/-");
         changeNumberSign.setBackground(Color.gray);
         changeNumberSign.setFocusPainted(false);
+        changeNumberSign.addActionListener(this);
         pane.add(changeNumberSign);
         
-        JButton zero = new JButton("0");
+        zero = new JButton("0");
         zero.setBackground(Color.gray);
         zero.setFocusPainted(false);
+        zero.addActionListener(this);
         pane.add(zero);
         
-        JButton decimal = new JButton(".");
+        decimal = new JButton(".");
         decimal.setBackground(Color.gray);
         decimal.setFocusPainted(false);
+        decimal.addActionListener(this);
         pane.add(decimal);
         
-        JButton equalSign = new JButton("=");
+        equalSign = new JButton("=");
         equalSign.setBackground(Color.gray);
         equalSign.setFocusPainted(false);
+        equalSign.addActionListener(this);
         pane.add(equalSign);
         
         calculatorGraphics.pack();
